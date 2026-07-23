@@ -96,6 +96,8 @@ python make_espdl.py
 | 文件 | 格式 | 大小 | 用途 |
 |------|------|------|------|
 | `model.espdl` | ESP-DL | 2.3 MB | 🏆 **ESP32-S3 部署** |
+| `model.info` | 文本 | — | 模型结构/输入输出信息、算子列表 |
+| `model.json` | JSON | — | 量化配置文件（每层 scale/zero_point） |
 | `model_int8.onnx` | INT8 ONNX | 2.3 MB | ONNX Runtime 部署 |
 | `model_fixed.onnx` | FP32 ONNX | 8.5 MB | 精度验证/调试 |
 | `best_model.pth` | PyTorch | 9.1 MB | 重新训练/微调 |

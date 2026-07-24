@@ -29,37 +29,36 @@ def build_espdl_model(num_classes):
 
 def convert_linear_to_conv(model):
     """
-    把训练好的 Linear 分类器权重转成 Conv2d
-    Linear(1280, 2) → Conv2d(1280, 2, kernel_size=1)
+    把训练好的 Linear 分类器权重转成 Conv2d(7x7)
+    将 AvgPool2d(7) + Conv2d(1x1) 合并为单个 Conv2d(7x7)，
+    避免 PPQ 的 AveragePool Bug
+    Linear(1280, 2) → Conv2d(1280, 2, kernel_size=7)
     """
     # 获取训练好的Linear层权重
     old_fc = model.classifier[1]
     weight = old_fc.weight.data  # shape: [2, 1280]
     bias = old_fc.bias.data      # shape: [2]
     
-    # 创建Conv2d替代
-    conv = nn.Conv2d(1280, NUM_CLASSES, kernel_size=1)
+    # 创建 Conv2d(7x7) 同时做平均池化和分类投影
+    # AvgPool2d(7) 每个位置权重 1/49, 然后 Conv2d(1x1) 做投影
+    # 合并后: Conv2d(7x7) 权重 = Linear_weight / 49
+    combined = nn.Conv2d(1280, NUM_CLASSES, kernel_size=7, bias=True)
+    # [2, 1280] -> [2, 1280, 7, 7]，每个 7x7 位置都等于 weight/49
+    combined.weight.data = (weight / (7 * 7)).unsqueeze(-1).unsqueeze(-1).expand(-1, -1, 7, 7).contiguous()
+    combined.bias.data = bias
     
-    # 转换权重: [out, in] → [out, in, 1, 1]
-    conv.weight.data = weight.unsqueeze(-1).unsqueeze(-1)
-    conv.bias.data = bias
-    
-    # 自定义 forward：把 features 的输出保持 4D，不 flatten
+    # 自定义 forward：features 输出保持 4D
     class EspdlMobileNet(nn.Module):
         def __init__(self, features, classifier_conv):
             super().__init__()
             self.features = features
-            self.classifier = nn.Sequential(
-                nn.AdaptiveAvgPool2d(1),  # [1,1280,7,7] -> [1,1280,1,1]
-                classifier_conv,           # [1,1280,1,1] -> [1,2,1,1]
-            )
-            # 用 Reshape 替代 Squeeze/Flatten（通过 view 实现）
+            self.classifier = classifier_conv  # 单个 Conv2d(7x7)，无 AveragePool
         def forward(self, x):
-            x = self.features(x)
-            x = self.classifier(x)  # [1,2,1,1]
-            return x  # 保持 4D 输出
+            x = self.features(x)       # [1,1280,7,7]
+            x = self.classifier(x)     # [1,2,1,1]
+            return x
     
-    return EspdlMobileNet(model.features, conv)
+    return EspdlMobileNet(model.features, combined)
 
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

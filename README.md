@@ -1,4 +1,6 @@
-# 螺丝/螺母 分类器 — MobileNetV2 → ESP32-S3
+# mobv2‑espdl 螺丝/螺母 分类器 — MobileNetV2 → ESP32-S3
+
+Tips: 此项目已整合到 [PartClassifier](https://github.com/m1nglan/PartClassifier)
 
 轻量级图像二分类项目，使用 **MobileNetV2** 实现螺丝 (screw/class 0) 与垫圈 (washer/class 1) 的实时识别，部署到 **ESP32-S3**。
 

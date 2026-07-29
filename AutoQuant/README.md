@@ -6,7 +6,6 @@
 
 ```
 ├── model_espdl.onnx          # 输入 ONNX 模型（二分类：螺丝/螺母）
-├── quantize_espdl_fixed.py   # 原始量化脚本（单次运行）
 ├── user_quant.py             # espdl-quantize skill 契约文件（迭代调参用）
 ├── dataset/                  # 带标签评估集
 │   ├── 螺丝/                 # class 0 — screw
@@ -35,17 +34,26 @@
 
 ## 快速开始
 
-```bash
-# 1. 单次量化（使用原始脚本）
-python quantize_espdl_fixed.py
+#### Agents方法: 
+```
+提示词: 
+使用esp-ppq的自动量化功能 
+使用espdl-quantize skill进行调参 
+对此目录下model_espdl.oxxn进行量化导出.espdl格式 
+校验集在check文件夹 评估集在dataset文件夹 skill在SKILL文件夹 
+自行构建契约文件 先填写你可以确定的值 无法确定的值向我提问
+结束后输出一份详细的模型说明报告 放在本目录 命名为model.md
+```
 
-# 2. 使用 skill 框架进行基线量化 + 分析
+#### 古法:
+```bash
+# 1. 使用 skill 框架进行基线量化 + 分析
 python SKILL/espdl-quantize/scripts/run_iteration.py \
     --user-quant user_quant.py \
     --baseline \
     --output-dir output/iter_0
 
-# 3. 验证契约文件
+# 2. 验证契约文件
 python SKILL/espdl-quantize/scripts/run_iteration.py \
     --user-quant user_quant.py \
     --check-contract \

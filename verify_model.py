@@ -1,8 +1,9 @@
 """
 verify_model.py
 ===============
-在 PC 上使用与 ESP32 驱动完全相同的预处理逻辑，验证 INT8 ONNX 模型
+在 PC 上使用与 ESP32-S3 驱动完全相同的预处理逻辑，验证 ONNX 模型
 是否能正确区分 t1.jpg（螺丝）和 t2.jpg（垫圈）。
+测试数据 t1.jpg 和 t2.jpg 放于根目录下
 
 预处理公式（与 classifier_driver.cpp 完全一致）：
     quantized = clamp(round(((pixel/255 - mean) / std) / scale), -128, 127)
@@ -10,7 +11,7 @@ verify_model.py
 其中:
     mean = [0.485, 0.456, 0.406]     (ImageNet 标准)
     std  = [0.229, 0.224, 0.225]     (ImageNet 标准)
-    scale = 0.03125 = 2^(-5)          (模型 exponent=-5)
+    scale = 0.03125 = 2^(-5)          (模型 exponent=-5) <-按需修改
 
 Resize 策略（与驱动一致）：
     1) 短边缩放到 256（保持宽高比）
@@ -38,7 +39,7 @@ IMG2 = "t2.jpg"                       # 垫圈
 # 与 C++ 驱动完全一致的参数
 MEAN = np.array([0.485, 0.456, 0.406], dtype=np.float32)
 STD  = np.array([0.229, 0.224, 0.225], dtype=np.float32)
-SCALE = 0.03125                       # 2^(-5)
+SCALE = 0.03125                       # 2^(-5) <-按需修改
 TARGET_SHORT = 256                    # 短边缩放目标
 TARGET_SIZE = 224                     # 最终裁剪尺寸
 INPUT_SHAPE = (1, 224, 224, 3)        # ONNX 输入 [N, H, W, C] (NHWC)

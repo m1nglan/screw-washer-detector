@@ -1,0 +1,306 @@
+[
+  {
+    "op_name": "/features/features.8/Add",
+    "op_type": "Add",
+    "max_snr": 1.6819952726364136,
+    "per_var_snrs": [
+      {
+        "var": "/features/features.7/conv/conv.2/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 1.6819952726364136
+      },
+      {
+        "var": "/features/features.8/conv/conv.2/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 0.8639278411865234
+      },
+      {
+        "var": "/features/features.8/Add_output_0",
+        "is_input": false,
+        "is_output": true,
+        "is_parameter": false,
+        "snr": 1.300889015197754
+      }
+    ],
+    "inputs_float_std_ratio": 1.3663689084351929
+  },
+  {
+    "op_name": "/features/features.5/Add",
+    "op_type": "Add",
+    "max_snr": 1.639694333076477,
+    "per_var_snrs": [
+      {
+        "var": "/features/features.4/conv/conv.2/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 1.639694333076477
+      },
+      {
+        "var": "/features/features.5/conv/conv.2/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 0.7027718424797058
+      },
+      {
+        "var": "/features/features.5/Add_output_0",
+        "is_input": false,
+        "is_output": true,
+        "is_parameter": false,
+        "snr": 1.4505866765975952
+      }
+    ],
+    "inputs_float_std_ratio": 1.5849912848043621
+  },
+  {
+    "op_name": "/features/features.9/Add",
+    "op_type": "Add",
+    "max_snr": 1.4566271305084229,
+    "per_var_snrs": [
+      {
+        "var": "/features/features.8/Add_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 1.300889015197754
+      },
+      {
+        "var": "/features/features.9/conv/conv.2/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 1.4566271305084229
+      },
+      {
+        "var": "/features/features.9/Add_output_0",
+        "is_input": false,
+        "is_output": true,
+        "is_parameter": false,
+        "snr": 1.1906696557998657
+      }
+    ],
+    "inputs_float_std_ratio": 2.3062381583972367
+  },
+  {
+    "op_name": "/features/features.6/Add",
+    "op_type": "Add",
+    "max_snr": 1.4505866765975952,
+    "per_var_snrs": [
+      {
+        "var": "/features/features.5/Add_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 1.4505866765975952
+      },
+      {
+        "var": "/features/features.6/conv/conv.2/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 1.0887508392333984
+      },
+      {
+        "var": "/features/features.6/Add_output_0",
+        "is_input": false,
+        "is_output": true,
+        "is_parameter": false,
+        "snr": 1.3869291543960571
+      }
+    ],
+    "inputs_float_std_ratio": 2.0508219456148975
+  },
+  {
+    "op_name": "/features/features.10/Add",
+    "op_type": "Add",
+    "max_snr": 1.3078956604003906,
+    "per_var_snrs": [
+      {
+        "var": "/features/features.9/Add_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 1.1906696557998657
+      },
+      {
+        "var": "/features/features.10/conv/conv.2/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 1.3078956604003906
+      },
+      {
+        "var": "/features/features.10/Add_output_0",
+        "is_input": false,
+        "is_output": true,
+        "is_parameter": false,
+        "snr": 1.1190094947814941
+      }
+    ],
+    "inputs_float_std_ratio": 1.671412992931939
+  },
+  {
+    "op_name": "/features/features.15/conv/conv.1/conv.1.2/Clip",
+    "op_type": "Clip",
+    "max_snr": 1.2318313121795654,
+    "per_var_snrs": [
+      {
+        "var": "/features/features.15/conv/conv.1/conv.1.0/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 1.1173020601272583
+      },
+      {
+        "var": "PPQ_Variable_29",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": true,
+        "snr": 0.0
+      },
+      {
+        "var": "PPQ_Variable_64",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": true,
+        "snr": 0.0
+      },
+      {
+        "var": "/features/features.15/conv/conv.1/conv.1.2/Clip_output_0",
+        "is_input": false,
+        "is_output": true,
+        "is_parameter": false,
+        "snr": 1.2318313121795654
+      }
+    ],
+    "inputs_float_std_ratio": null
+  },
+  {
+    "op_name": "/features/features.15/Add",
+    "op_type": "Add",
+    "max_snr": 1.1102285385131836,
+    "per_var_snrs": [
+      {
+        "var": "/features/features.14/conv/conv.2/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 0.9353070855140686
+      },
+      {
+        "var": "/features/features.15/conv/conv.2/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 1.1102285385131836
+      },
+      {
+        "var": "/features/features.15/Add_output_0",
+        "is_input": false,
+        "is_output": true,
+        "is_parameter": false,
+        "snr": 1.0290828943252563
+      }
+    ],
+    "inputs_float_std_ratio": 1.0098907742078713
+  },
+  {
+    "op_name": "/features/features.3/Add",
+    "op_type": "Add",
+    "max_snr": 1.0681345462799072,
+    "per_var_snrs": [
+      {
+        "var": "/features/features.2/conv/conv.2/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 0.6354989409446716
+      },
+      {
+        "var": "/features/features.3/conv/conv.2/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 1.0681345462799072
+      },
+      {
+        "var": "/features/features.3/Add_output_0",
+        "is_input": false,
+        "is_output": true,
+        "is_parameter": false,
+        "snr": 0.9082561731338501
+      }
+    ],
+    "inputs_float_std_ratio": 1.3053984243370529
+  },
+  {
+    "op_name": "/features/features.8/conv/conv.1/conv.1.2/Clip",
+    "op_type": "Clip",
+    "max_snr": 1.061338186264038,
+    "per_var_snrs": [
+      {
+        "var": "/features/features.8/conv/conv.1/conv.1.0/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 1.061338186264038
+      },
+      {
+        "var": "PPQ_Variable_15",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": true,
+        "snr": 0.0
+      },
+      {
+        "var": "PPQ_Variable_50",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": true,
+        "snr": 0.4479234516620636
+      },
+      {
+        "var": "/features/features.8/conv/conv.1/conv.1.2/Clip_output_0",
+        "is_input": false,
+        "is_output": true,
+        "is_parameter": false,
+        "snr": 0.8056970834732056
+      }
+    ],
+    "inputs_float_std_ratio": null
+  },
+  {
+    "op_name": "/features/features.16/Add",
+    "op_type": "Add",
+    "max_snr": 1.0460305213928223,
+    "per_var_snrs": [
+      {
+        "var": "/features/features.15/Add_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 1.0460305213928223
+      },
+      {
+        "var": "/features/features.16/conv/conv.2/Conv_output_0",
+        "is_input": true,
+        "is_output": false,
+        "is_parameter": false,
+        "snr": 0.7995966076850891
+      },
+      {
+        "var": "/features/features.16/Add_output_0",
+        "is_input": false,
+        "is_output": true,
+        "is_parameter": false,
+        "snr": 0.8644803166389465
+      }
+    ],
+    "inputs_float_std_ratio": 1.6399897396783394
+  }
+]

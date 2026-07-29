@@ -1,0 +1,1171 @@
+{
+  "count": 98,
+  "ops": [
+    {
+      "name": "/features/features.0/features.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "input",
+        "onnx::Conv_536",
+        "onnx::Conv_537"
+      ],
+      "outputs": [
+        "/features/features.0/features.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.0/features.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.0/features.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.0/features.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.1/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.0/features.0.2/Clip_output_0",
+        "onnx::Conv_539",
+        "onnx::Conv_540"
+      ],
+      "outputs": [
+        "/features/features.1/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.1/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.1/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.1/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.1/conv/conv.1/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.1/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_542",
+        "onnx::Conv_543"
+      ],
+      "outputs": [
+        "/features/features.1/conv/conv.1/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.2/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.1/conv/conv.1/Conv_output_0",
+        "onnx::Conv_545",
+        "onnx::Conv_546"
+      ],
+      "outputs": [
+        "/features/features.2/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.2/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.2/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.2/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.2/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.2/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_548",
+        "onnx::Conv_549"
+      ],
+      "outputs": [
+        "/features/features.2/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.2/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.2/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.2/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.2/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.2/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_551",
+        "onnx::Conv_552"
+      ],
+      "outputs": [
+        "/features/features.2/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.3/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.2/conv/conv.2/Conv_output_0",
+        "onnx::Conv_554",
+        "onnx::Conv_555"
+      ],
+      "outputs": [
+        "/features/features.3/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.3/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.3/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.3/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.3/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.3/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_557",
+        "onnx::Conv_558"
+      ],
+      "outputs": [
+        "/features/features.3/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.3/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.3/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.3/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.3/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.3/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_560",
+        "onnx::Conv_561"
+      ],
+      "outputs": [
+        "/features/features.3/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.3/Add",
+      "op_type": "Add",
+      "inputs": [
+        "/features/features.2/conv/conv.2/Conv_output_0",
+        "/features/features.3/conv/conv.2/Conv_output_0"
+      ],
+      "outputs": [
+        "/features/features.3/Add_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.4/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.3/Add_output_0",
+        "onnx::Conv_563",
+        "onnx::Conv_564"
+      ],
+      "outputs": [
+        "/features/features.4/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.4/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.4/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.4/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.4/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.4/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_566",
+        "onnx::Conv_567"
+      ],
+      "outputs": [
+        "/features/features.4/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.4/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.4/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.4/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.4/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.4/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_569",
+        "onnx::Conv_570"
+      ],
+      "outputs": [
+        "/features/features.4/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.5/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.4/conv/conv.2/Conv_output_0",
+        "onnx::Conv_572",
+        "onnx::Conv_573"
+      ],
+      "outputs": [
+        "/features/features.5/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.5/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.5/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.5/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.5/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.5/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_575",
+        "onnx::Conv_576"
+      ],
+      "outputs": [
+        "/features/features.5/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.5/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.5/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.5/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.5/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.5/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_578",
+        "onnx::Conv_579"
+      ],
+      "outputs": [
+        "/features/features.5/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.5/Add",
+      "op_type": "Add",
+      "inputs": [
+        "/features/features.4/conv/conv.2/Conv_output_0",
+        "/features/features.5/conv/conv.2/Conv_output_0"
+      ],
+      "outputs": [
+        "/features/features.5/Add_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.6/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.5/Add_output_0",
+        "onnx::Conv_581",
+        "onnx::Conv_582"
+      ],
+      "outputs": [
+        "/features/features.6/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.6/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.6/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.6/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.6/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.6/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_584",
+        "onnx::Conv_585"
+      ],
+      "outputs": [
+        "/features/features.6/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.6/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.6/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.6/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.6/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.6/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_587",
+        "onnx::Conv_588"
+      ],
+      "outputs": [
+        "/features/features.6/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.6/Add",
+      "op_type": "Add",
+      "inputs": [
+        "/features/features.5/Add_output_0",
+        "/features/features.6/conv/conv.2/Conv_output_0"
+      ],
+      "outputs": [
+        "/features/features.6/Add_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.7/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.6/Add_output_0",
+        "onnx::Conv_590",
+        "onnx::Conv_591"
+      ],
+      "outputs": [
+        "/features/features.7/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.7/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.7/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.7/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.7/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.7/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_593",
+        "onnx::Conv_594"
+      ],
+      "outputs": [
+        "/features/features.7/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.7/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.7/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.7/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.7/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.7/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_596",
+        "onnx::Conv_597"
+      ],
+      "outputs": [
+        "/features/features.7/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.8/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.7/conv/conv.2/Conv_output_0",
+        "onnx::Conv_599",
+        "onnx::Conv_600"
+      ],
+      "outputs": [
+        "/features/features.8/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.8/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.8/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.8/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.8/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.8/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_602",
+        "onnx::Conv_603"
+      ],
+      "outputs": [
+        "/features/features.8/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.8/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.8/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.8/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.8/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.8/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_605",
+        "onnx::Conv_606"
+      ],
+      "outputs": [
+        "/features/features.8/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.8/Add",
+      "op_type": "Add",
+      "inputs": [
+        "/features/features.7/conv/conv.2/Conv_output_0",
+        "/features/features.8/conv/conv.2/Conv_output_0"
+      ],
+      "outputs": [
+        "/features/features.8/Add_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.9/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.8/Add_output_0",
+        "onnx::Conv_608",
+        "onnx::Conv_609"
+      ],
+      "outputs": [
+        "/features/features.9/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.9/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.9/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.9/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.9/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.9/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_611",
+        "onnx::Conv_612"
+      ],
+      "outputs": [
+        "/features/features.9/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.9/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.9/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.9/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.9/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.9/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_614",
+        "onnx::Conv_615"
+      ],
+      "outputs": [
+        "/features/features.9/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.9/Add",
+      "op_type": "Add",
+      "inputs": [
+        "/features/features.8/Add_output_0",
+        "/features/features.9/conv/conv.2/Conv_output_0"
+      ],
+      "outputs": [
+        "/features/features.9/Add_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.10/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.9/Add_output_0",
+        "onnx::Conv_617",
+        "onnx::Conv_618"
+      ],
+      "outputs": [
+        "/features/features.10/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.10/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.10/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.10/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.10/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.10/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_620",
+        "onnx::Conv_621"
+      ],
+      "outputs": [
+        "/features/features.10/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.10/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.10/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.10/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.10/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.10/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_623",
+        "onnx::Conv_624"
+      ],
+      "outputs": [
+        "/features/features.10/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.10/Add",
+      "op_type": "Add",
+      "inputs": [
+        "/features/features.9/Add_output_0",
+        "/features/features.10/conv/conv.2/Conv_output_0"
+      ],
+      "outputs": [
+        "/features/features.10/Add_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.11/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.10/Add_output_0",
+        "onnx::Conv_626",
+        "onnx::Conv_627"
+      ],
+      "outputs": [
+        "/features/features.11/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.11/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.11/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.11/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.11/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.11/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_629",
+        "onnx::Conv_630"
+      ],
+      "outputs": [
+        "/features/features.11/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.11/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.11/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.11/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.11/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.11/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_632",
+        "onnx::Conv_633"
+      ],
+      "outputs": [
+        "/features/features.11/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.12/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.11/conv/conv.2/Conv_output_0",
+        "onnx::Conv_635",
+        "onnx::Conv_636"
+      ],
+      "outputs": [
+        "/features/features.12/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.12/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.12/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.12/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.12/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.12/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_638",
+        "onnx::Conv_639"
+      ],
+      "outputs": [
+        "/features/features.12/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.12/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.12/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.12/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.12/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.12/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_641",
+        "onnx::Conv_642"
+      ],
+      "outputs": [
+        "/features/features.12/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.12/Add",
+      "op_type": "Add",
+      "inputs": [
+        "/features/features.11/conv/conv.2/Conv_output_0",
+        "/features/features.12/conv/conv.2/Conv_output_0"
+      ],
+      "outputs": [
+        "/features/features.12/Add_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.13/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.12/Add_output_0",
+        "onnx::Conv_644",
+        "onnx::Conv_645"
+      ],
+      "outputs": [
+        "/features/features.13/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.13/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.13/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.13/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.13/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.13/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_647",
+        "onnx::Conv_648"
+      ],
+      "outputs": [
+        "/features/features.13/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.13/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.13/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.13/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.13/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.13/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_650",
+        "onnx::Conv_651"
+      ],
+      "outputs": [
+        "/features/features.13/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.13/Add",
+      "op_type": "Add",
+      "inputs": [
+        "/features/features.12/Add_output_0",
+        "/features/features.13/conv/conv.2/Conv_output_0"
+      ],
+      "outputs": [
+        "/features/features.13/Add_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.14/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.13/Add_output_0",
+        "onnx::Conv_653",
+        "onnx::Conv_654"
+      ],
+      "outputs": [
+        "/features/features.14/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.14/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.14/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.14/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.14/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.14/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_656",
+        "onnx::Conv_657"
+      ],
+      "outputs": [
+        "/features/features.14/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.14/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.14/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.14/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.14/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.14/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_659",
+        "onnx::Conv_660"
+      ],
+      "outputs": [
+        "/features/features.14/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.15/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.14/conv/conv.2/Conv_output_0",
+        "onnx::Conv_662",
+        "onnx::Conv_663"
+      ],
+      "outputs": [
+        "/features/features.15/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.15/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.15/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.15/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.15/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.15/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_665",
+        "onnx::Conv_666"
+      ],
+      "outputs": [
+        "/features/features.15/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.15/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.15/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.15/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.15/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.15/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_668",
+        "onnx::Conv_669"
+      ],
+      "outputs": [
+        "/features/features.15/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.15/Add",
+      "op_type": "Add",
+      "inputs": [
+        "/features/features.14/conv/conv.2/Conv_output_0",
+        "/features/features.15/conv/conv.2/Conv_output_0"
+      ],
+      "outputs": [
+        "/features/features.15/Add_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.16/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.15/Add_output_0",
+        "onnx::Conv_671",
+        "onnx::Conv_672"
+      ],
+      "outputs": [
+        "/features/features.16/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.16/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.16/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.16/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.16/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.16/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_674",
+        "onnx::Conv_675"
+      ],
+      "outputs": [
+        "/features/features.16/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.16/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.16/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.16/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.16/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.16/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_677",
+        "onnx::Conv_678"
+      ],
+      "outputs": [
+        "/features/features.16/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.16/Add",
+      "op_type": "Add",
+      "inputs": [
+        "/features/features.15/Add_output_0",
+        "/features/features.16/conv/conv.2/Conv_output_0"
+      ],
+      "outputs": [
+        "/features/features.16/Add_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.17/conv/conv.0/conv.0.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.16/Add_output_0",
+        "onnx::Conv_680",
+        "onnx::Conv_681"
+      ],
+      "outputs": [
+        "/features/features.17/conv/conv.0/conv.0.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.17/conv/conv.0/conv.0.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.17/conv/conv.0/conv.0.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.17/conv/conv.0/conv.0.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.17/conv/conv.1/conv.1.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.17/conv/conv.0/conv.0.2/Clip_output_0",
+        "onnx::Conv_683",
+        "onnx::Conv_684"
+      ],
+      "outputs": [
+        "/features/features.17/conv/conv.1/conv.1.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.17/conv/conv.1/conv.1.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.17/conv/conv.1/conv.1.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.17/conv/conv.1/conv.1.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.17/conv/conv.2/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.17/conv/conv.1/conv.1.2/Clip_output_0",
+        "onnx::Conv_686",
+        "onnx::Conv_687"
+      ],
+      "outputs": [
+        "/features/features.17/conv/conv.2/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.18/features.18.0/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.17/conv/conv.2/Conv_output_0",
+        "onnx::Conv_689",
+        "onnx::Conv_690"
+      ],
+      "outputs": [
+        "/features/features.18/features.18.0/Conv_output_0"
+      ]
+    },
+    {
+      "name": "/features/features.18/features.18.2/Clip",
+      "op_type": "Clip",
+      "inputs": [
+        "/features/features.18/features.18.0/Conv_output_0",
+        "/features/features.0/features.0.2/Constant_output_0",
+        "/features/features.0/features.0.2/Constant_1_output_0"
+      ],
+      "outputs": [
+        "/features/features.18/features.18.2/Clip_output_0"
+      ]
+    },
+    {
+      "name": "/classifier/Conv",
+      "op_type": "Conv",
+      "inputs": [
+        "/features/features.18/features.18.2/Clip_output_0",
+        "classifier.weight",
+        "classifier.bias"
+      ],
+      "outputs": [
+        "output"
+      ]
+    }
+  ]
+}

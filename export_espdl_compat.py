@@ -31,31 +31,26 @@ def convert_linear_to_conv(model):
     """
     把训练好的 Linear 分类器权重转成 Conv2d(7x7)
     将 AvgPool2d(7) + Conv2d(1x1) 合并为单个 Conv2d(7x7)，
-    避免 PPQ 的 AveragePool Bug
+    彻底避免 AveragePool 算子（ESP-DL 的 AveragePool 可能有 Bug）
     Linear(1280, 2) → Conv2d(1280, 2, kernel_size=7)
     """
-    # 获取训练好的Linear层权重
     old_fc = model.classifier[1]
-    weight = old_fc.weight.data  # shape: [2, 1280]
-    bias = old_fc.bias.data      # shape: [2]
+    weight = old_fc.weight.data  # [2, 1280]
+    bias = old_fc.bias.data      # [2]
     
-    # 创建 Conv2d(7x7) 同时做平均池化和分类投影
-    # AvgPool2d(7) 每个位置权重 1/49, 然后 Conv2d(1x1) 做投影
-    # 合并后: Conv2d(7x7) 权重 = Linear_weight / 49
+    # 合并池化和分类：Conv2d(7x7) 权重 = Linear_weight / 49，展开到 7x7
     combined = nn.Conv2d(1280, NUM_CLASSES, kernel_size=7, bias=True)
-    # [2, 1280] -> [2, 1280, 7, 7]，每个 7x7 位置都等于 weight/49
-    combined.weight.data = (weight / (7 * 7)).unsqueeze(-1).unsqueeze(-1).expand(-1, -1, 7, 7).contiguous()
+    combined.weight.data = (weight / 49.0).unsqueeze(-1).unsqueeze(-1).expand(-1, -1, 7, 7).contiguous()
     combined.bias.data = bias
     
-    # 自定义 forward：features 输出保持 4D
     class EspdlMobileNet(nn.Module):
         def __init__(self, features, classifier_conv):
             super().__init__()
             self.features = features
-            self.classifier = classifier_conv  # 单个 Conv2d(7x7)，无 AveragePool
+            self.classifier = classifier_conv
         def forward(self, x):
-            x = self.features(x)       # [1,1280,7,7]
-            x = self.classifier(x)     # [1,2,1,1]
+            x = self.features(x)
+            x = self.classifier(x)
             return x
     
     return EspdlMobileNet(model.features, combined)

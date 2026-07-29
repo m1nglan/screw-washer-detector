@@ -1,0 +1,9 @@
+{
+  "_used": "evaluate_fast",
+  "_primary_key": "accuracy",
+  "_primary_value": 0.9666666666666667,
+  "metric_direction": "max",
+  "accuracy": 0.9666666666666667,
+  "total_samples": 60,
+  "correct": 58
+}

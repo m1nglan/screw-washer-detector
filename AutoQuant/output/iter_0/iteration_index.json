@@ -1,0 +1,39 @@
+{
+  "iteration_id": 0,
+  "rationale": "default espdl_setting() baseline",
+  "model_path": "D:\\Desktop\\新建文件夹\\output\\iter_0\\model.espdl",
+  "model_name": "model_espdl",
+  "target_chip": "esp32s3",
+  "elapsed_seconds": 639.32,
+  "primary_metric": "accuracy",
+  "primary_value": 0.9666666666666667,
+  "metric_direction": "max",
+  "target_metric": 0.95,
+  "deploy_runtime_priority": "balanced",
+  "non_computing_top_k": 10,
+  "non_computing_hot_ops_count": 10,
+  "graphwise_jumps_count": 24,
+  "top_5_error_layers": [
+    {
+      "op": "/features/features.1/conv/conv.0/conv.0.0/Conv",
+      "snr": 0.6865990882118543
+    },
+    {
+      "op": "/features/features.3/conv/conv.1/conv.1.0/Conv",
+      "snr": 0.1419840268790722
+    },
+    {
+      "op": "/features/features.1/conv/conv.1/Conv",
+      "snr": 0.03381057256936199
+    },
+    {
+      "op": "/features/features.2/conv/conv.1/conv.1.0/Conv",
+      "snr": 0.031193648723678455
+    },
+    {
+      "op": "/classifier/Conv",
+      "snr": 0.0165567049342725
+    }
+  ],
+  "applied_setting_warnings": []
+}

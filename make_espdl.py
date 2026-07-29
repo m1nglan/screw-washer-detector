@@ -8,13 +8,18 @@ t = transforms.Compose([transforms.Resize(256), transforms.CenterCrop(224),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
 ds = datasets.ImageFolder(root='dataset', transform=t)
+# collate_fn: 保持 NCHW（ONNX 输入是 NCHW，PPQ 内部自动转 NHWC）
 loader = DataLoader(Subset(ds, np.random.choice(len(ds), 150, replace=False)),
-    batch_size=16, shuffle=False, collate_fn=lambda b: torch.stack([i[0] for i in b]))
+    batch_size=16, shuffle=False,
+    collate_fn=lambda b: torch.stack([i[0] for i in b]))
 
-print("PPQ 量化 model_espdl.onnx (无 Flatten/Gemm)...")
+print("PPQ 量化 model_espdl.onnx (NCHW → PPQ 自动转 NHWC)...")
 s = QuantizationSetting()
-for a in ['fusion','equalization','lsq_optimization','blockwise_reconstruction','bias_correct']:
+# blockwise_reconstruction 需要 CUDA，CPU 环境关掉
+for a in ['fusion', 'lsq_optimization', 'blockwise_reconstruction']:
     setattr(s, a, False)
+s.bias_correct = True
+s.equalization = False
 
 try:
     r = espdl_quantize_onnx(onnx_import_file="output/model_espdl.onnx",

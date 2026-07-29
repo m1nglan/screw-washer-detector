@@ -1,52 +1,146 @@
 # 螺丝/螺母 分类器 — MobileNetV2 → ESP32-S3
 
-轻量级图像二分类项目，使用 MobileNetV2 实现螺丝 (screw) 与螺母 (washer) 的实时识别，支持部署到 **ESP32-S3** 嵌入式设备。
+轻量级图像二分类项目，使用 **MobileNetV2** 实现螺丝 (screw/class 0) 与螺母/垫圈 (washer/class 1) 的实时识别，部署到 **ESP32-S3**。
 
 ---
 
-## 📋 项目结构
+## 📋 项目状态
 
-```
-├── dataset/                          ← 训练数据
-│   ├── 螺丝/                         ← screw (453张)
-│   └── 螺母/                         ← washer (744张)
-│
-├── output/                           ← 模型输出
-│   ├── model.espdl                   ← 🏆 ESP-DL 格式 (2.3MB, 可部署)
-│   ├── model_int8.onnx               ← INT8 ONNX (2.3MB, 98.31%)
-│   ├── model_fixed.onnx              ← FP32 ONNX (8.5MB)
-│   ├── best_model.pth                ← 最佳训练权重
-│   └── training_curves.png           ← 训练曲线
-│
-├── deploy/                           ← ESP-IDF 部署模板
-│   ├── CMakeLists.txt
-│   └── main/
-│       ├── main.cpp                  ← 主程序（需补充推理引擎）
-│       ├── model_data.h/cpp          ← 模型二进制数据
-│       └── tensors/                  ← INT8 权重文件 (344个)
-│
-├── main.py                           ← 训练脚本
-├── demo.py                           ← 实时检测（摄像头/屏幕）
-├── export_espdl_compat.py            ← ESP-DL 兼容模型导出
-├── make_espdl.py                     ← PPQ 量化 → .espdl
-├── quantize.py                       ← ONNX Runtime 量化
-├── requirements.txt                  ← Python 依赖
-├── agent.md                          ← 原始需求文档
-├── ppq.md                            ← 量化任务文档
-└── README.md
-```
+| 环节 | 状态 | 备注 |
+|------|------|------|
+| 数据集整理 | ✅ | 螺丝 453 张，螺母 744 张 |
+| 模型训练 | ✅ | MobileNetV2, 50 epochs, 100% 验证精度 |
+| PC ONNX 推理 | ✅ | FP32/INT8 模拟均正确 |
+| PPQ 量化 → .espdl | ✅ | 分类器噪声 0.148% |
+| **ESP32-S3 部署** | ❌ | **推理结果始终偏 class 0，排查中** |
+
+### 当前问题
+
+模型在 PC 上（ONNX Runtime FP32 + INT8 模拟）推理完全正确，但在 ESP32-S3 上所有输入均输出 class 0 > class 1。已排除：
+- ✅ 模型架构问题（3 种架构均测试）
+- ✅ 量化噪声过高（bias_correct 后 0.148%）
+- ✅ Transpose 算子问题（已移除）
+- ✅ AveragePool 算子问题（已移除）
+- ❌ **ImagePreprocessor 预处理不一致**（板子输出 ch0=[6,6,6,6], PC=[18,18,19,19]）
+- ❌ **ESP-DL Conv INT8 计算**（怀疑有运行时 Bug）
+
+**排查方向**：IDF 侧修复预处理一致性 → 若仍偏 class 0，则向乐鑫提 ESP-DL issue。
 
 ---
 
-## 🚀 快速开始
+## 📁 文件说明
 
-### 安装依赖
+### 🔵 PC 侧 — 训练 & 导出
+
+| 文件 | 作用 |
+|------|------|
+| `main.py` | **训练脚本** — MobileNetV2 迁移学习，50 epochs，保存 `best_model.pth` |
+| `demo.py` | **实时检测** — 摄像头 (-c N) 或屏幕选区 (-s) 实时推理 |
+| `export_espdl_compat.py` | **ONNX 导出** — 加载 `best_model.pth` → 转 ESP-DL 兼容结构 → 输出 `model_espdl.onnx` |
+| `make_espdl.py` | **PPQ 量化** — ONNX → INT8 `.espdl`（EDL2 格式，含 bias_correct + equalization） |
+| `quantize.py` | ONNX Runtime 静态 INT8 量化（生成 `model_int8.onnx`，仅供参考） |
+
+### 🔵 PC 侧 — 验证 & 调试
+
+| 文件 | 作用 |
+|------|------|
+| `verify_model.py` | **ESP32 预处理一致性验证** — 完全模拟板端预处理公式，打印 INT8 量化值 |
+| `verify_ppq.py` | **PPQ 量化后验证** — 对比 FP32 ONNX vs INT8 .espdl 推理误差 |
+| `test_esp32.py` | **板端预处理模拟** — 用 BILINEAR resize + [0,255] mean/std 处理图片，保存 crop 结果 |
+| `test_normal.py` | 标准 ToTensor+Normalize 预处理验证 |
+| `check_bias.py` | 快速推理验证（检查 bias 和权重范围） |
+| `check_quant.py` | 查看 model.json 中的量化参数（scale/zero_point） |
+
+### 🔵 输出文件
+
+| 文件 | 说明 |
+|------|------|
+| `output/best_model.pth` | **训练好的权重**（9.1 MB） |
+| `output/model_espdl.onnx` | **ESP-DL 兼容 ONNX**（8.9 MB，算子: Conv+Clip+Add，无 Transpose/AveragePool） |
+| `output/model.espdl` | **🏆 部署文件**（2.4 MB，INT8 量化，在板子上运行） |
+| `output/model.info` | PPQ 量化详情（网络结构、每层量化参数、测试值） |
+| `output/model.json` | 量化参数 JSON（scale/zero_point 等） |
+| `output/model_fixed.onnx` | 原始 FP32 ONNX（8.7 MB） |
+| `output/model_int8.onnx` | ONNX Runtime INT8 量化（2.3 MB，opset 兼容性问题） |
+
+### 🟢 ESP-IDF 侧 — 部署
+
+| 文件 | 说明 |
+|------|------|
+| `deploy/CMakeLists.txt` | IDF 项目配置 |
+| `deploy/main/main.cpp` | **主程序** — JPEG 加载 + ImagePreprocessor + 模型推理 + 结果输出 |
+| `deploy/main/model_data.h/cpp` | `.espdl` 的 C 数组嵌入 |
+| `deploy/main/tensors/` | 各层 scale/zero_point 的 .npy 文件（344 个） |
+
+---
+
+## 🛠️ PPQ 源码补丁
+
+因 ESP-PPQ 1.3.6 存在多个 Bug，修改了以下文件（`py310_env/Lib/site-packages/esp_ppq/`）：
+
+| 文件 | 修改 | 原因 |
+|------|------|------|
+| `executor/op/torch/default.py` | AveragePool_forward: 3D→4D unsqueeze | graph pass 压掉 batch 维导致 1D/2D 误判 |
+| `executor/op/torch/default.py` | Transpose_forward: 3D→4D unsqueeze | 同上，batch 维被压没 |
+| `parser/espdl/espdl_graph_utils.py` | transpose_shape: 补 batch 维 | export 时 shape 维度不匹配 |
+| `parser/espdl_exporter.py` | quantize_and_transpose: 补 batch 维 | test value 导出时 permute 维度不匹配 |
+
+---
+
+## 🔄 完整流程
 
 ```bash
-pip install -r requirements.txt
+# 1. 训练
+python main.py
+
+# 2. 导出 ESP-DL 兼容 ONNX
+python export_espdl_compat.py
+
+# 3. PPQ 量化
+python make_espdl.py        # → output/model.espdl
+
+# 4. PC 验证
+python check_bias.py        # ONNX FP32 推理验证
+python test_esp32.py        # 模拟板端预处理
+
+# 5. 部署到 ESP32-S3
+#    - 将 output/model.espdl 转为 C 数组 → deploy/main/model_data.h/cpp
+#    - 重新编译烧录
 ```
 
-> 注意：PPQ 量化需要 **Python 3.10** + PyTorch 2.6.0
+---
+
+## ⚡ 预处理公式（板端与 PC 保持一致）
+
+```
+resize:      短边缩放到 256（保持宽高比，BILINEAR）
+center crop: 224×224
+normalize:   (pixel / 255 - mean) / std
+             其中 mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
+quantize:    round(normalized / 0.03125) → clamp[-128, 127]
+layout:      NHWC [1, 224, 224, 3]
+input scale: 0.03125 (exponent=-5), zero_point=0
+output scale: 0.125 (exponent=-3), zero_point=0
+```
+
+---
+
+## 📊 模型架构
+
+```
+MobileNetV2 backbone (features)
+    → AvgPool2d(kernel_size=7)  [合并为 Conv2d(1280,2,7) 的版本也测试过]
+    → Conv2d(1280 → 2, kernel_size=1)
+    → output [1,2,1,1] NCHW → PPQ 内部转 NHWC
+```
+
+---
+
+## 🔗 参考
+
+- [ESP-DL](https://github.com/espressif/esp-dl)
+- [ESP-PPQ](https://github.com/espressif/esp-ppq)
+- [MobileNetV2](https://arxiv.org/abs/1801.04381)
 
 ### 训练模型
 

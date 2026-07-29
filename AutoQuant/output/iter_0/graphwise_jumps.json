@@ -1,0 +1,314 @@
+[
+  {
+    "op_prev": "/features/features.7/conv/conv.1/conv.1.0/Conv",
+    "op_next": "/features/features.7/conv/conv.2/Conv",
+    "delta_graphwise": 1.2421456442938912,
+    "isolated_layerwise_op_next": 0.00014933546925830241,
+    "intervening_excess": 1.2419963088246329,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.7/conv/conv.1/conv.1.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.4/conv/conv.1/conv.1.0/Conv",
+    "op_next": "/features/features.4/conv/conv.2/Conv",
+    "delta_graphwise": 0.8983115951220195,
+    "isolated_layerwise_op_next": 0.000709958840161562,
+    "intervening_excess": 0.897601636281858,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.4/conv/conv.1/conv.1.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.3/conv/conv.1/conv.1.0/Conv",
+    "op_next": "/features/features.3/conv/conv.2/Conv",
+    "delta_graphwise": 0.7113589611318376,
+    "isolated_layerwise_op_next": 0.0030249078538165325,
+    "intervening_excess": 0.7083340532780211,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.3/conv/conv.1/conv.1.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.9/conv/conv.1/conv.1.0/Conv",
+    "op_next": "/features/features.9/conv/conv.2/Conv",
+    "delta_graphwise": 0.5695937739478216,
+    "isolated_layerwise_op_next": 0.001139307926172882,
+    "intervening_excess": 0.5684544660216487,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.9/conv/conv.1/conv.1.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.1/conv/conv.0/conv.0.0/Conv",
+    "op_next": "/features/features.1/conv/conv.1/Conv",
+    "delta_graphwise": 0.46990503929555416,
+    "isolated_layerwise_op_next": 0.03381057256936199,
+    "intervening_excess": 0.4360944667261922,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.1/conv/conv.0/conv.0.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.18/features.18.0/Conv",
+    "op_next": "/classifier/Conv",
+    "delta_graphwise": 0.4347792118787765,
+    "isolated_layerwise_op_next": 0.0165567049342725,
+    "intervening_excess": 0.41822250694450397,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.18/features.18.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.2/conv/conv.1/conv.1.0/Conv",
+    "op_next": "/features/features.2/conv/conv.2/Conv",
+    "delta_graphwise": 0.3886930661069022,
+    "isolated_layerwise_op_next": 0.003290255581507356,
+    "intervening_excess": 0.3854028105253948,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.2/conv/conv.1/conv.1.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.6/conv/conv.1/conv.1.0/Conv",
+    "op_next": "/features/features.6/conv/conv.2/Conv",
+    "delta_graphwise": 0.35607618755764436,
+    "isolated_layerwise_op_next": 0.00015560469970902582,
+    "intervening_excess": 0.3559205828579353,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.6/conv/conv.1/conv.1.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.11/conv/conv.1/conv.1.0/Conv",
+    "op_next": "/features/features.11/conv/conv.2/Conv",
+    "delta_graphwise": 0.3499698837598165,
+    "isolated_layerwise_op_next": 0.0014543419197757936,
+    "intervening_excess": 0.34851554184004074,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.11/conv/conv.1/conv.1.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.14/conv/conv.1/conv.1.0/Conv",
+    "op_next": "/features/features.14/conv/conv.2/Conv",
+    "delta_graphwise": 0.32447155978944564,
+    "isolated_layerwise_op_next": 0.0018467487728533645,
+    "intervening_excess": 0.3226248110165923,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.14/conv/conv.1/conv.1.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.4/conv/conv.0/conv.0.0/Conv",
+    "op_next": "/features/features.4/conv/conv.1/conv.1.0/Conv",
+    "delta_graphwise": 0.30318627092573375,
+    "isolated_layerwise_op_next": 0.0076095583661097204,
+    "intervening_excess": 0.29557671255962403,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.4/conv/conv.0/conv.0.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.10/conv/conv.1/conv.1.0/Conv",
+    "op_next": "/features/features.10/conv/conv.2/Conv",
+    "delta_graphwise": 0.28633226288689506,
+    "isolated_layerwise_op_next": 0.0012778300115314778,
+    "intervening_excess": 0.2850544328753636,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.10/conv/conv.1/conv.1.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.10/conv/conv.0/conv.0.0/Conv",
+    "op_next": "/features/features.10/conv/conv.1/conv.1.0/Conv",
+    "delta_graphwise": 0.2475884225633409,
+    "isolated_layerwise_op_next": 2.5051315990114948e-05,
+    "intervening_excess": 0.24756337124735078,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.10/conv/conv.0/conv.0.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.12/conv/conv.1/conv.1.0/Conv",
+    "op_next": "/features/features.12/conv/conv.2/Conv",
+    "delta_graphwise": 0.22177728679445052,
+    "isolated_layerwise_op_next": 9.04907560147371e-05,
+    "intervening_excess": 0.22168679603843577,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.12/conv/conv.1/conv.1.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.13/conv/conv.1/conv.1.0/Conv",
+    "op_next": "/features/features.13/conv/conv.2/Conv",
+    "delta_graphwise": 0.19490890370474923,
+    "isolated_layerwise_op_next": 0.0004143854922505044,
+    "intervening_excess": 0.19449451821249872,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.13/conv/conv.1/conv.1.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.15/conv/conv.1/conv.1.0/Conv",
+    "op_next": "/features/features.15/conv/conv.2/Conv",
+    "delta_graphwise": 0.1657746566666497,
+    "isolated_layerwise_op_next": 0.001823024272905766,
+    "intervening_excess": 0.16395163239374394,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.15/conv/conv.1/conv.1.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.6/conv/conv.0/conv.0.0/Conv",
+    "op_next": "/features/features.6/conv/conv.1/conv.1.0/Conv",
+    "delta_graphwise": 0.16113545497258508,
+    "isolated_layerwise_op_next": 0.0002446450784595476,
+    "intervening_excess": 0.16089080989412552,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.6/conv/conv.0/conv.0.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.13/conv/conv.0/conv.0.0/Conv",
+    "op_next": "/features/features.13/conv/conv.1/conv.1.0/Conv",
+    "delta_graphwise": 0.15812557273440897,
+    "isolated_layerwise_op_next": 0.002133547857536339,
+    "intervening_excess": 0.15599202487687264,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.13/conv/conv.0/conv.0.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.12/conv/conv.0/conv.0.0/Conv",
+    "op_next": "/features/features.12/conv/conv.1/conv.1.0/Conv",
+    "delta_graphwise": 0.15396754609213936,
+    "isolated_layerwise_op_next": 0.0007475154092794077,
+    "intervening_excess": 0.15322003068285994,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.12/conv/conv.0/conv.0.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.8/conv/conv.0/conv.0.0/Conv",
+    "op_next": "/features/features.8/conv/conv.1/conv.1.0/Conv",
+    "delta_graphwise": 0.14105147785610628,
+    "isolated_layerwise_op_next": 0.0001156547724450421,
+    "intervening_excess": 0.14093582308366123,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.8/conv/conv.0/conv.0.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.5/conv/conv.1/conv.1.0/Conv",
+    "op_next": "/features/features.5/conv/conv.2/Conv",
+    "delta_graphwise": 0.13119158479902482,
+    "isolated_layerwise_op_next": 8.17383816966968e-05,
+    "intervening_excess": 0.13110984641732812,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.5/conv/conv.1/conv.1.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.9/conv/conv.0/conv.0.0/Conv",
+    "op_next": "/features/features.9/conv/conv.1/conv.1.0/Conv",
+    "delta_graphwise": 0.098247230052948,
+    "isolated_layerwise_op_next": 0.001797819238466521,
+    "intervening_excess": 0.09644941081448148,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.9/conv/conv.0/conv.0.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.15/conv/conv.0/conv.0.0/Conv",
+    "op_next": "/features/features.15/conv/conv.1/conv.1.0/Conv",
+    "delta_graphwise": 0.07025877634684252,
+    "isolated_layerwise_op_next": 0.0004475505136522568,
+    "intervening_excess": 0.06981122583319027,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.15/conv/conv.0/conv.0.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  },
+  {
+    "op_prev": "/features/features.5/conv/conv.0/conv.0.0/Conv",
+    "op_next": "/features/features.5/conv/conv.1/conv.1.0/Conv",
+    "delta_graphwise": 0.06827576292885673,
+    "isolated_layerwise_op_next": 0.0006444162605071648,
+    "intervening_excess": 0.06763134666834957,
+    "intervening_non_computing_ops": [
+      {
+        "name": "/features/features.5/conv/conv.0/conv.0.2/Clip",
+        "type": "Clip"
+      }
+    ]
+  }
+]

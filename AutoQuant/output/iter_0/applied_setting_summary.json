@@ -1,0 +1,14 @@
+{
+  "iteration_id": 0,
+  "rationale": "default espdl_setting() baseline",
+  "calib_algorithm": "kl",
+  "equalization": null,
+  "bias_correct": null,
+  "weight_split": null,
+  "tqt_optimization": null,
+  "lsq_optimization": null,
+  "blockwise_reconstruction": null,
+  "fusion_alignment": null,
+  "dispatching_table": null,
+  "extra": null
+}
